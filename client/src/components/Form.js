@@ -8,13 +8,6 @@ export function Input(props) {
   );
 }
 
-export function Text(props) {
-  return (
-    <div className="form-group">
-      <textarea className="form-control" rows="20" {...props} />
-    </div>
-  );
-}
 
 export function SubmitBtn(props) {
   return (

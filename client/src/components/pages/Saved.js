@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Input, SubmitBtn } from "../Form";
 
-
-class Books extends Component {
+class Saved extends Component {
     state = {
         books: []
     };
@@ -10,25 +9,22 @@ class Books extends Component {
 
     render() {
         return (
-        
-            
-       
+           
             <div className='container'>
-            
+               
                 <div className='jumbotron text-center text-danger bg-dark'>
-                    <h1>Google Books API</h1>
+                    <h1>Saved Books</h1>
                 </div>
 
-                <h2> Search for a book!</h2>
+                <h2> Manage your Saved Books</h2>
                 <form>
                     <Input name='title' placeholder='Title' />
                     <Input name='author' placeholder='Author' />
                     <SubmitBtn> Submit</SubmitBtn>
                 </form>
             </div>
-           
         )
     }
 }
 
-export default Books;
+export default Saved;
