@@ -46,7 +46,13 @@ class Books extends Component {
             description: this.state.description,
             image: this.state.image,
             link: this.state.link
-        })
+        }).then(res => this.setState({
+            title: '',
+            author: [],
+            description: '',
+            image: '',
+            link: ''
+        }))
     }
 
     render() {

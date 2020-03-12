@@ -16,3 +16,12 @@ export function SubmitBtn(props) {
     </button>
   );
 }
+
+export function DeleteBtn(props) {
+  return (
+    <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-danger">
+      {props.children}
+    </button>
+  );
+}
+

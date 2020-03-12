@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { SubmitBtn } from "../Form";
-import {ListItem, List} from "../List"
+import { DeleteBtn } from "../Form";
+import { ListItem, List } from "../List"
 import API from "../../utils/API"
 class Saved extends Component {
     state = {
         books: []
-        
+
     };
 
     componentDidMount() {
@@ -15,14 +15,22 @@ class Saved extends Component {
     loadSaved = () => {
         //findAll from mongoose database
         API.getBooks()
+            .then(res => {this.setState({
+                books: res.data
+            })
+       
+        }
+            )
     }
 
-    save = data => {
-        API.saveBook(data)
-    }
+   
 
     remove = (id) => {
-        API.deleteBook(id)
+        API.deleteBook(id).then(res => {
+            
+            this.loadSaved()
+        }
+        )
     }
     render() {
         return (
@@ -39,12 +47,16 @@ class Saved extends Component {
                     <List>
                         {this.state.books.map(book => (
                             <ListItem key={book._id}>
-                                <a href={"/books/" + book._id}>
-                                    <strong>
-                                        {book.title} by {book.author}
-                                    </strong>
-                                </a>
-                                <SubmitBtn onClick={this.remove}> Delete</SubmitBtn>
+
+                                <p>
+                                    {book.title} by {book.author}
+                                    <br>
+                                    </br>
+                                    <a href={book.link}>Read Now!</a>
+                                </p>
+
+
+                                <DeleteBtn onClick={() => this.remove(book._id)}> Delete</DeleteBtn>
                             </ListItem>
                         ))}
                     </List>
