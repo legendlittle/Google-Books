@@ -12,7 +12,7 @@ class App extends Component {
         <div>
           <Nav/>
           <Route exact path='/' component={Books} />
-          <Route exact path='/api/books' component={Saved} />
+          <Route exact path='/saved' component={Saved} />
         </div>
       </Router>
       
